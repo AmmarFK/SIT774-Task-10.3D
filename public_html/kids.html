@@ -1,0 +1,209 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="author" content="Ammar">
+    <meta name="description" content="Task">
+    <title>Velvet Vibes</title>
+    <link rel="icon" type="image/png" href="./Resources/favicon.webp">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <link href="./navbarstyle.css" rel="stylesheet">
+</head>
+
+<body>
+    <nav class="navbar navbar-expand-md navbar-dark bg-dark">
+        <div class="container-fluid">
+          <!-- Logo -->
+          <a class="navbar-brand" href="/Index">
+            <img src="./Resources/logo.JPG" alt="Logo" width="150" style="border-radius: 5px;">
+          </a>
+          <!-- Banner -->
+          <div id="bannerCarousel" class="carousel slide" data-bs-ride="carousel">
+            <div class="carousel-inner">
+              <div class="carousel-item active">
+                <img src="./Resources/banner.jpg" alt="Banner 1" class="img-fluid" style="border-radius: 5px;">
+              </div>
+              <div class="carousel-item">
+                <img src="./Resources/banner2.jpg" alt="Banner 2" class="img-fluid" style="border-radius: 5px;">
+              </div>
+              <div class="carousel-item">
+                <img src="./Resources/banner3.jpg" alt="Banner 3" class="img-fluid" style="border-radius: 5px;">
+              </div>
+              <div class="carousel-item">
+                <img src="./Resources/banner4.jpg" alt="Banner 3" class="img-fluid" style="border-radius: 5px;">
+              </div>
+            </div>
+          </div>   
+          <!-- Login, Cart, Checkout -->
+          <div class="float-end d-flex flex-column" style="margin-left: 15px;">
+            <a class="btn btn-outline-primary mb-2" href="/">Login</a>
+            <a href="checkout.html" class="btn btn-outline-primary mb-2">
+              <span class="d-flex align-items-center">
+                <img src="./Resources/cart3.svg" class="bg-warning me-2" width="24" alt="Cart icon">
+                <span>Cart</span>
+              </span>
+            </a>        
+          </div>
+      </nav>
+                 
+      <nav class="navbar navbar-expand-lg navbar-light bg-warning mb-3">
+        <div class="container-fluid">
+          <!-- Side-navigation -->
+          <button class="btn btn-outline-light" type="button" data-bs-toggle="offcanvas" data-bs-target="#navbarOffcanvas" aria-controls="navbarOffcanvas"><span class="navbar-toggler-icon"></span></button>
+          <!-- Navbar toggler -->
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+          </button>
+      
+          <!-- Navbar links -->
+          <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav me-auto">
+              <li class="nav-item">
+                <a class="nav-link" href="women.html">Women</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="men.html">Men</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="kids.html">Kids</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="brands.html">Brands</a>
+              </li>
+            </ul>
+          </div>
+      
+          <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav ms-auto">
+              <li class="nav-item">
+                <a class="nav-link" href="about.html">About Us</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="contact.html">Contact</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="faq.html">FAQ</a>
+              </li>
+            </ul>
+          </div>
+    
+          <!-- Navbar search box -->
+          <div class="d-flex">
+            <form class="d-flex" action="/search" method="GET">
+              <input class="form-control me-2" type="search" name="query" placeholder="Search" aria-label="Search">
+              <button class="btn btn-outline-dark" type="submit">Search</button>
+            </form>            
+          </div>           
+        </div>
+      </nav>
+    
+      <!-- Side navbar -->
+      <div class="offcanvas offcanvas-start" tabindex="-1" id="navbarOffcanvas" aria-labelledby="offcanvasExampleLabel">
+        <div class="offcanvas-header">
+          <h5 class="offcanvas-title text-white" id="offcanvasExampleLabel">Browse by Categories</h5>
+          <button type="button" class="btn-close text-white" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+        </div>
+        <div class="offcanvas-body">
+          <ul class="list-unstyled mb-0">
+            <li class="mb-2"><a href="menshirt.html" class="text-decoration-none text-secondary fw-bold">Shirts</a></li>
+            <li class="mb-2"><a href="menhoodies.html" class="text-decoration-none text-secondary fw-bold">Pants</a></li>
+            <li class="mb-2"><a href="menshoes.html" class="text-decoration-none text-secondary fw-bold">Shoes</a></li>
+          </ul>
+        </div>
+      </div>
+
+      <!-- Main Content -->
+    <div class="row container-fluid">
+      <!-- Boys category -->
+      <div class="col-md-3 mb-4">
+      <div class="card">
+          <img src="./Resources/kidboy.jpg" class="card-img-top" height="300" alt="...">
+          <div class="card-body">
+          <h5 class="card-title">Boys</h5>
+          <p class="card-text">Shop our latest collection of dresses for kids.</p>
+          <a href="kidsboys.html" class="btn btn-primary">Shop Now</a>
+          </div>
+      </div>
+      </div>
+      
+      <!-- Girls category -->
+      <div class="col-md-3 mb-4">
+      <div class="card">
+          <img src="./Resources/kidgirl.jpg" class="card-img-top" height="300" alt="...">
+          <div class="card-body">
+          <h5 class="card-title">Girls</h5>
+          <p class="card-text">Shop our latest collection of dresses for kids.</p>
+          <a href="kidsgirls.html" class="btn btn-primary">Shop Now</a>
+          </div>
+      </div>
+      </div>
+      
+      <!-- Shoes category -->
+      <div class="col-md-3 mb-4">
+      <div class="card">
+          <img src="./Resources/kidshoes.jpg" class="card-img-top" height="300" alt="...">
+          <div class="card-body">
+          <h5 class="card-title">Shoes</h5>
+          <p class="card-text">Step up your shoe game with our collection of kids's shoes.</p>
+          <a href="kidsshoes.html" class="btn btn-primary">Shop Now</a>
+          </div>
+      </div>
+      </div>
+      
+      
+      <!-- Sweats & Hoodies category -->
+      <div class="col-md-3 mb-4">
+      <div class="card">
+          <img src="./Resources/kidhoodies.jpg" class="card-img-top" height="300" alt="...">
+          <div class="card-body">
+          <h5 class="card-title">Sweats & Hoodies</h5>
+          <p class="card-text">Complete your look with our collection of kids's Sweats & Hoodies.</p>
+          <a href="kidssh.html" class="btn btn-primary">Shop Now</a>
+          </div>
+      </div>
+      </div>
+  </div>  
+
+        <!-- Footer -->
+  <footer class="bg-dark text-light">
+    <div class="container py-3">
+      <div class="row">
+        <div class="col-md-4">
+          <h5>About Velvet Vibes</h5>
+          <p>Velvet Vibes is an online shopping store that offers the latest fashion trends for men. Our mission is to provide high-quality products at affordable prices, while providing exceptional customer service.</p>
+        </div>
+        <div class="col-md-4">
+          <h5>Contact Us</h5>
+          <ul class="list-unstyled">
+            <li>Phone: 1-800-VELVETVIBES</li>
+            <li>Email: support@velvetvibes.com</li>
+            <li>Address: 123 Main Street, Anytown USA</li>
+          </ul>
+        </div>
+        <div class="col-md-4">
+          <h5>Follow Us</h5>
+          <ul class="list-unstyled">
+            <li><a href="#">Facebook</a></li>
+            <li><a href="#">Instagram</a></li>
+            <li><a href="#">Twitter</a></li>
+          </ul>
+        </div>
+      </div>
+      <hr>
+      <!-- Copyright -->
+      <div id="copyright" class="text-center">
+      </div>
+      <!-- Copyright -->
+    </div>
+  </footer>
+</body>
+
+<script>
+    //script to display current year on footer
+    const year = new Date().getFullYear(); // Get the current year
+   document.addEventListener('DOMContentLoaded', () => {
+   const copyright = document.querySelector('#copyright');
+   copyright.textContent = `Copyright © ${year} Velvet Vibes`;
+   });
+</script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>

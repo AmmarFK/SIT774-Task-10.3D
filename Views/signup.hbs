@@ -1,0 +1,229 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="author" content="Ammar">
+  <meta name="description" content="Task">
+  <title>Velvet Vibes</title>
+  <link rel="icon" type="image/png" href="./Resources/favicon.webp">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+  <link href="./navbarstyle.css" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/sweetalert2@11.0.18/dist/sweetalert2.min.css">
+</head>
+
+<style>
+  .popup {
+    position: fixed;
+    top: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 9999;
+    background-color: #fff;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.3);
+    padding: 10px;
+  }
+
+  .popup-content {
+    display: flex;
+    align-items: center;
+  }
+
+  .close-btn {
+    margin-left: 10px;
+    cursor: pointer;
+    color: #888;
+    font-size: 18px;
+  }
+</style>
+
+<body>
+  {{#if user}}
+  {{else}}
+  <div id="popup" class="popup">
+    <div class="popup-content">
+      <span class="close-btn" onclick="closePopup()">&times;</span>
+      <p>{{{ message }}}</p> <!-- Display the server-side message here -->
+    </div>
+  </div>
+  {{/if}}
+
+  <nav class="navbar navbar-expand-lg navbar-light bg-warning">
+    <div class="container-fluid">
+      <!-- Navbar toggler -->
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
+        aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+
+      <!-- Navbar links -->
+      <div class="collapse navbar-collapse" id="navbarNav">
+        <ul class="navbar-nav me-auto">
+          <li class="nav-item">
+            <a class="nav-link" href="/Index">Home</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="women.html">Women</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="men.html">Men</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="kids.html">Kids</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="brands.html">Brands</a>
+          </li>
+        </ul>
+      </div>
+
+      <div class="collapse navbar-collapse" id="navbarNav">
+        <ul class="navbar-nav ms-auto">
+          <li class="nav-item">
+            <a class="nav-link" href="about.html">About Us</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="contact.html">Contact</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="faq.html">FAQ</a>
+          </li>
+        </ul>
+      </div>
+
+    </div>
+  </nav>
+
+  <!-- Signup form -->
+  <div class="container mt-5 mb-3">
+    <div class="row justify-content-center">
+      <div class="col-md-10">
+        <div class="card shadow">
+          <div class="card-body">
+            <h3 class="card-title text-center text-primary mb-4">Signup</h3>
+            <hr>
+            <form action="/signup" method="post" id="signup-form">
+              <div class="mb-3">
+                <label for="name" class="form-label">Name</label>
+                <input type="text" class="form-control" id="name" name="fname" placeholder="Enter name" required>
+                <div id="name-invalid-feedback"></div>
+              </div>
+              <div class="mb-3">
+                <label for="name" class="form-label">Surname</label>
+                <input type="text" class="form-control" id="surname" name="surname" placeholder="Enter surname"
+                  required>
+                <div id="name-invalid-feedback"></div>
+              </div>
+              <div class="mb-3">
+                <label for="name" class="form-label">Username</label>
+                <input type="text" class="form-control" id="username" name="username" placeholder="Enter username"
+                  required>
+                <div id="name-invalid-feedback"></div>
+              </div>
+              <div class="mb-3">
+                <label for="email" class="form-label">Email address</label>
+                <input type="email" class="form-control" id="email" name="email" placeholder="Enter email" required>
+                <div id="email-invalid-feedback"></div>
+              </div>
+              <div class="mb-3">
+                <label for="password" class="form-label">Password</label>
+                <input type="password" class="form-control" id="password" name="password" placeholder="Enter password"
+                  required>
+                <div id="password-invalid-feedback"></div>
+              </div>
+              <div class="mb-3">
+                <label for="confirm-password" class="form-label">Confirm Password</label>
+                <input type="password" class="form-control" id="confirm-password" placeholder="Confirm password"
+                  required>
+                <div id="cnfrm-password-invalid-feedback"></div>
+              </div>
+              <div class="mb-3">
+                <label for="dob" class="form-label">Date of Birth</label>
+                <input type="date" class="form-control" id="dob" name="dob" placeholder="Select Date of Birth">
+              </div>
+              <button type="submit" class="btn btn-primary w-100" onclick="signup()">Sign up</button>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <footer class="bg-dark text-light">
+    <div class="container py-3">
+      <div class="row">
+        <div class="col-md-4">
+          <h5>About Velvet Vibes</h5>
+          <p>Velvet Vibes is an online shopping store that offers the latest fashion trends for women. Our mission is to
+            provide high-quality products at affordable prices, while providing exceptional customer service.</p>
+        </div>
+        <div class="col-md-4">
+          <h5>Contact Us</h5>
+          <ul class="list-unstyled">
+            <li>Phone: 1-800-VELVETVIBES</li>
+            <li>Email: support@velvetvibes.com</li>
+            <li>Address: 123 Main Street, Anytown USA</li>
+          </ul>
+        </div>
+        <div class="col-md-4">
+          <h5>Follow Us</h5>
+          <ul class="list-unstyled">
+            <li><a href="#">Facebook</a></li>
+            <li><a href="#">Instagram</a></li>
+            <li><a href="#">Twitter</a></li>
+          </ul>
+        </div>
+      </div>
+      <hr>
+      <!-- Copyright -->
+      <div id="copyright" class="text-center">
+      </div>
+      <!-- Copyright -->
+    </div>
+  </footer>
+</body>
+
+<script>
+  //script to display current year on footer
+  const year = new Date().getFullYear(); // Get the current year
+  document.addEventListener('DOMContentLoaded', () => {
+    const copyright = document.querySelector('#copyright');
+    copyright.textContent = `Copyright © ${year} Velvet Vibes`;
+  });
+
+  // Form validation script
+  (function () {
+    'use strict';
+    window.addEventListener('load', function () {
+      var forms = document.getElementsByClassName('needs-validation');
+      Array.prototype.filter.call(forms, function (form) {
+        form.addEventListener('submit', function (event) {
+          if (form.checkValidity() === false) {
+            event.preventDefault();
+            event.stopPropagation();
+          }
+          form.classList.add('was-validated');
+        }, false);
+      });
+    }, false);
+  })();
+
+  function showPopup() {
+    document.getElementById('popup').style.display = 'block';
+  }
+
+  // Function to close the popup
+  function closePopup() {
+    document.getElementById('popup').style.display = 'none';
+  }
+  // Call the showPopup function when the page loads
+  window.onload = showPopup;
+</script>
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11.0.18/dist/sweetalert2.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
+  integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+<script src="./signup.js"></script>

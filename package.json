@@ -1,0 +1,27 @@
+{
+  "name": "web-server",
+  "version": "1.0.1",
+  "description": "Velvet Vibes, clothing store",
+  "main": "index.js",
+  "scripts": {
+    "start": "node ./index.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "node",
+    "web",
+    "server"
+  ],
+  "author": "Ammar",
+  "license": "ISC",
+  "dependencies": {
+    "bcrypt": "^5.1.0",
+    "bootstrap-icons": "^1.10.4",
+    "express": "^4.17.1",
+    "express-handlebars": "^7.0.7",
+    "express-session": "^1.17.3",
+    "hbs": "^4.2.0",
+    "multer": "^1.4.5-lts.1",
+    "sqlite3": "^5.1.6"
+  }
+}

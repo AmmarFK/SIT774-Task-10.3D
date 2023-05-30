@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="author" content="Ammar">
+    <meta name="description" content="Task">
+    <!-- Added a favicon -->
+    <link rel="icon" type="image/png" href="./Resources/favicon.webp">
+    <title>Velvet Vibes</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <link href="./navbarstyle.css" rel="stylesheet">
+</head>
+
+<body>
+    <nav class="navbar navbar-expand-md navbar-dark bg-dark">
+        <div class="container-fluid">
+            <!-- Logo -->
+            <a class="navbar-brand" href="/Index">
+                <img src="./Resources/logo.JPG" alt="Logo" width="150" height="130" style="border-radius: 5px;">
+            </a>
+            <!-- Banner -->
+            <div id="bannerCarousel" class="carousel slide" data-bs-ride="carousel">
+                <div class="carousel-inner">
+                    <div class="carousel-item active">
+                        <img src="./Resources/banner.jpg" alt="Banner 1" class="img-fluid" style="border-radius: 5px;">
+                    </div>
+                    <div class="carousel-item">
+                        <img src="./Resources/banner2.jpg" alt="Banner 2" class="img-fluid" style="border-radius: 5px;">
+                    </div>
+                    <div class="carousel-item">
+                        <img src="./Resources/banner3.jpg" alt="Banner 3" class="img-fluid" style="border-radius: 5px;">
+                    </div>
+                    <div class="carousel-item">
+                        <img src="./Resources/banner4.jpg" alt="Banner 3" class="img-fluid" style="border-radius: 5px;">
+                    </div>
+                </div>
+            </div>
+            <!-- Login, Cart, Checkout -->
+            <div class="float-end d-flex flex-column" style="margin-left: 15px;">
+                {{#if user}}
+                <a href="/logout" class="btn btn-outline-danger mb-2">Log out</a>
+                {{else}}
+                <a class="btn btn-outline-primary mb-2" href="/">Login</a>
+                {{/if}}
+                <a href="checkout.html" class="btn btn-outline-warning mb-2" id="mybtn">
+                    <span class="d-flex align-items-center">
+                        <img src="./Resources/cart3.svg" class="bg-warning me-2" width="24" alt="Cart icon">
+                        <span>Cart</span>
+                    </span>
+                </a>
+            </div>
+    </nav>
+
+    <nav class="navbar navbar-expand-lg navbar-light bg-warning">
+        <div class="container-fluid">
+            <!-- Side-navigation -->
+            <button class="btn btn-outline-light" type="button" data-bs-toggle="offcanvas"
+                data-bs-target="#navbarOffcanvas" aria-controls="navbarOffcanvas"><span
+                    class="navbar-toggler-icon"></span></button>
+            <!-- Navbar toggler -->
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
+                aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+
+            <!-- Navbar links -->
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav me-auto">
+                    <li class="nav-item">
+                        <a class="nav-link" href="/users">Users</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="/products">Products</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="women.html">Women</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="men.html">Men</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="kids.html">Kids</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="brands.html">Brands</a>
+                    </li>
+                </ul>
+            </div>
+
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item">
+                        <a class="nav-link" href="about.html">About Us</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="contact.html">Contact</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="faq.html">FAQ</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Side navbar -->
+    <div class="offcanvas offcanvas-start" tabindex="-1" id="navbarOffcanvas" aria-labelledby="offcanvasExampleLabel">
+        <div class="offcanvas-header">
+            <h5 class="offcanvas-title text-white" id="offcanvasExampleLabel">Browse by Categories</h5>
+            <button type="button" class="btn-close text-white" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+        </div>
+        <div class="offcanvas-body">
+            <ul class="list-unstyled mb-0">
+                <li class="mb-2"><a href="menshirt.html" class="text-decoration-none text-secondary fw-bold">Shirts</a>
+                </li>
+                <li class="mb-2"><a href="menhoodies.html" class="text-decoration-none text-secondary fw-bold">Pants</a>
+                </li>
+                <li class="mb-2"><a href="menshoes.html" class="text-decoration-none text-secondary fw-bold">Shoes</a>
+                </li>
+            </ul>
+        </div>
+    </div>
+
+    <!-- Heading -->
+    <section class="bg-dark py-5 mb-3">
+        <div class="container">
+            <h1 class="text-center fw-bold text-light">Welcome to Velvet Vibes!</h1>
+        </div>
+    </section>
+    <div class="container-fluid">
+        <div class="row justify-content-center">
+            <div class="col-md-8">
+                {{{productList}}}
+            </div>
+        </div>
+
+        <div class="row bg-light justify-content-center mt-4 p-3">
+            <div class="col-md-8">
+                <form action="/products" method="POST" enctype="multipart/form-data">
+                    <input type="text" class="form-control mb-2" name="ProductName" placeholder="Product Name"
+                        required />
+                    <textarea name="Description" class="form-control mb-2" placeholder="Description"
+                        required></textarea>
+                    <input type="number" class="form-control mb-2" name="Price" placeholder="Price" required />
+                    <input type="number" class="form-control mb-2" name="Quantity" placeholder="Quantity" required />
+                    <select name="CategoryID" required class="form-control mb-2">
+                        <option value="1">Women</option>
+                        <option value="2">Men</option>
+                        <option value="3">Kids</option>
+                    </select>
+                    <input type="text" name="Brand" class="form-control mb-2" placeholder="Brand" required />
+                    <input type="file" name="Image" class="form-control mb-2" accept="image/*" required />
+                    <input type="submit" class="btn btn-primary" value="Add Product">
+                </form>
+            </div>
+        </div>
+    </div>
+
+</body>
+
+</html>

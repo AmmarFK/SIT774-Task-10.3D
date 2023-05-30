@@ -1,0 +1,410 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="author" content="Ammar">
+  <meta name="description" content="Task">
+  <!-- Added a favicon -->
+  <link rel="icon" type="image/png" href="./Resources/favicon.webp">
+  <title>Velvet Vibes</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+  <link href="./navbarstyle.css" rel="stylesheet">
+</head>
+
+<body>
+
+  <nav class="navbar navbar-expand-md navbar-dark bg-dark">
+    <div class="container-fluid">
+      <!-- Logo -->
+      <a class="navbar-brand" href="/Index">
+        <img src="./Resources/logo.JPG" alt="Logo" width="150" height="130" style="border-radius: 5px;">
+      </a>
+      <!-- Banner -->
+      <div id="bannerCarousel" class="carousel slide" data-bs-ride="carousel">
+        <div class="carousel-inner">
+          <div class="carousel-item active">
+            <img src="./Resources/banner.jpg" alt="Banner 1" class="img-fluid" style="border-radius: 5px;">
+          </div>
+          <div class="carousel-item">
+            <img src="./Resources/banner2.jpg" alt="Banner 2" class="img-fluid" style="border-radius: 5px;">
+          </div>
+          <div class="carousel-item">
+            <img src="./Resources/banner3.jpg" alt="Banner 3" class="img-fluid" style="border-radius: 5px;">
+          </div>
+          <div class="carousel-item">
+            <img src="./Resources/banner4.jpg" alt="Banner 3" class="img-fluid" style="border-radius: 5px;">
+          </div>
+        </div>
+      </div>
+      <!-- Login, Cart, Checkout -->
+      <div class="float-end d-flex flex-column" style="margin-left: 15px;">
+        {{#if user}}
+        <a href="/logout" class="btn btn-outline-danger mb-2">Log out</a>
+        {{else}}
+        <a class="btn btn-outline-primary mb-2" href="/login">Login</a>
+        {{/if}}
+        <a href="checkout.html" class="btn btn-outline-warning mb-2" id="mybtn">
+          <span class="d-flex align-items-center">
+            <img src="./Resources/cart3.svg" class="bg-warning me-2" width="24" alt="Cart icon">
+            <span>Cart</span>
+          </span>
+        </a>
+      </div>
+  </nav>
+
+  <nav class="navbar navbar-expand-lg navbar-light bg-warning">
+    <div class="container-fluid">
+      <!-- Side-navigation -->
+      <button class="btn btn-outline-light" type="button" data-bs-toggle="offcanvas" data-bs-target="#navbarOffcanvas"
+        aria-controls="navbarOffcanvas"><span class="navbar-toggler-icon"></span></button>
+      <!-- Navbar toggler -->
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
+        aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+
+      <!-- Navbar links -->
+      <div class="collapse navbar-collapse" id="navbarNav">
+        <ul class="navbar-nav me-auto">
+          <li class="nav-item">
+            <a class="nav-link" href="women.html">Women</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="men.html">Men</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="kids.html">Kids</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="brands.html">Brands</a>
+          </li>
+        </ul>
+      </div>
+
+      <div class="collapse navbar-collapse" id="navbarNav">
+        <ul class="navbar-nav ms-auto">
+          <li class="nav-item">
+            <a class="nav-link" href="about.html">About Us</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="contact.html">Contact</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="faq.html">FAQ</a>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Side navbar -->
+  <div class="offcanvas offcanvas-start" tabindex="-1" id="navbarOffcanvas" aria-labelledby="offcanvasExampleLabel">
+    <div class="offcanvas-header">
+      <h5 class="offcanvas-title text-white" id="offcanvasExampleLabel">Browse by Categories</h5>
+      <button type="button" class="btn-close text-white" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+    </div>
+    <div class="offcanvas-body">
+      <ul class="list-unstyled mb-0">
+        <li class="mb-2"><a href="menshirt.html" class="text-decoration-none text-secondary fw-bold">Shirts</a></li>
+        <li class="mb-2"><a href="menhoodies.html" class="text-decoration-none text-secondary fw-bold">Pants</a></li>
+        <li class="mb-2"><a href="menshoes.html" class="text-decoration-none text-secondary fw-bold">Shoes</a></li>
+      </ul>
+    </div>
+  </div>
+
+  <!-- Heading -->
+  <section class="bg-dark py-5 mb-3">
+    <div class="container">
+      <h1 class="text-center fw-bold text-light">Welcome to Velvet Vibes!</h1>
+    </div>
+  </section>
+
+  <div class="container my-2">
+
+      <div class="row">
+      <div class="col-md-4">
+        <div class="card bg-info text-white mb-3">
+          <div class="card-body">
+            {{#if user}}
+            <h4 class="card-title">Welcome, {{user.db_name}}!</h4>
+            <p class="card-text">Full Name: {{user.db_name}}</p>
+            <p class="card-text">Email: {{user.db_email}}</p>
+            {{else}}
+            <h1 class="card-title">Welcome, Guest!</h1>
+            <p class="card-text">Please log in to view your information.</p>
+            {{/if}}
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Featured Products   -->
+    <div class="row mb-5">
+      <div class="col-md-6 col-lg-4 mb-4">
+        <div class="card">
+          <div id="carousel1" class="carousel slide carousel-fade" data-bs-ride="carousel">
+            <div class="carousel-inner">
+              <div class="carousel-item active" id="featuredimg1">
+                <img src="./Resources/1.jpg" class="d-block w-100" alt="...">
+              </div>
+              <div class="carousel-item" id="featuredimg1">
+                <img src="./Resources/2.jpg" class="d-block w-100" alt="...">
+              </div>
+              <div class="carousel-item" id="featuredimg1">
+                <img src="./Resources/3.jpg" class="d-block w-100" alt="...">
+              </div>
+            </div>
+            <button class="carousel-control-prev" type="button" data-bs-target="#carousel1" data-bs-slide="prev">
+              <span class="visually-hidden">Previous</span>
+            </button>
+            <button class="carousel-control-next" type="button" data-bs-target="#carousel1" data-bs-slide="next">
+              <span class="visually-hidden">Next</span>
+            </button>
+          </div>
+          <div class="card-body">
+            <h5 class="card-title">Featured Items</h5>
+            <p class="card-text">Starting from $49.99</p>
+            <button type="button" class="btn btn-primary mb-2" data-bs-toggle="collapse" data-bs-target="#card-details1"
+              aria-expanded="false" aria-controls="card-details">Details</button>
+            <div class="collapse" id="card-details1">
+              <div class="card card-body bg-dark text-white">
+                <p>Our collection of hoodies features the perfect combination of comfort and style. Made with soft and
+                  high-quality materials, they're perfect for lounging at home or running errands. With a variety of
+                  colors and designs to choose from, you're sure to find the perfect hoodie for your wardrobe.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="col-md-6 col-lg-4 mb-4">
+        <div class="card">
+          <div id="carousel2" class="carousel slide carousel-fade" data-bs-ride="carousel">
+            <div class="carousel-inner">
+              <div class="carousel-item active" id="featuredimg1">
+                <img src="./Resources/4.jpg" class="d-block w-100" alt="...">
+              </div>
+              <div class="carousel-item" id="featuredimg1">
+                <img src="./Resources/5.jpeg" class="d-block w-100" alt="...">
+              </div>
+              <div class="carousel-item" id="featuredimg1">
+                <img src="./Resources/6.jpg" class="d-block w-100" alt="...">
+              </div>
+            </div>
+            <button class="carousel-control-prev" type="button" data-bs-target="#carousel2" data-bs-slide="prev">
+              <span class="visually-hidden">Previous</span>
+            </button>
+            <button class="carousel-control-next" type="button" data-bs-target="#carousel2" data-bs-slide="next">
+              <span class="visually-hidden">Next</span>
+            </button>
+          </div>
+          <div class="card-body">
+            <h5 class="card-title">Featured Items</h5>
+            <p class="card-text">Starting from $59.99</p>
+            <button type="button" class="btn btn-primary mb-2" data-bs-toggle="collapse" data-bs-target="#card-details2"
+              aria-expanded="false" aria-controls="card-details">Details</button>
+            <div class="collapse" id="card-details2">
+              <div class="card card-body bg-dark text-white">
+                <p>Our t-shirts are a must-have for any casual wardrobe. Made with breathable fabrics, they're perfect
+                  for everyday wear. Our collection includes a variety of colors and styles, from basic tees to graphic
+                  tees. Whether you're looking for a classic white tee or a bold graphic print, we've got you covered.
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="col-md-6 col-lg-4 mb-4">
+        <div class="card">
+          <div id="carousel2" class="carousel slide carousel-fade" data-bs-ride="carousel">
+            <div class="carousel-inner">
+              <div class="carousel-item active" id="featuredimg1">
+                <img src="./Resources/7.jpg" class="d-block w-100" alt="...">
+              </div>
+              <div class="carousel-item" id="featuredimg1">
+                <img src="./Resources/8.jpg" class="d-block w-100" alt="...">
+              </div>
+              <div class="carousel-item" id="featuredimg1">
+                <img src="./Resources/9.jpg" class="d-block w-100" alt="...">
+              </div>
+            </div>
+            <button class="carousel-control-prev" type="button" data-bs-target="#carousel2" data-bs-slide="prev">
+              <span class="visually-hidden">Previous</span>
+            </button>
+            <button class="carousel-control-next" type="button" data-bs-target="#carousel2" data-bs-slide="next">
+              <span class="visually-hidden">Next</span>
+            </button>
+          </div>
+          <div class="card-body">
+            <h5 class="card-title">Featured Items</h5>
+            <p class="card-text">Starting from $59.99</p>
+            <button type="button" class="btn btn-primary mb-2" data-bs-toggle="collapse" data-bs-target="#card-details3"
+              aria-expanded="false" aria-controls="card-details">Details</button>
+            <div class="collapse" id="card-details3">
+              <div class="card card-body bg-dark text-white">
+                <p>Our collection of shoes offers the perfect combination of style and comfort. From casual sneakers to
+                  stylish boots, we have a variety of options to suit your needs. Made with high-quality materials, our
+                  shoes are designed to last. With a variety of colors and styles to choose from, you're sure to find
+                  the perfect pair for any occasion.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Special Offers -->
+    <div class="row mb-5">
+      <div class="col-md-6 mb-4">
+        <div class="card text-white bg-dark">
+          <div class="card-header">Special Offer</div>
+          <div class="card-body">
+            <h5 class="card-title">50% off all t-shirts!</h5>
+            <p class="card-text">Use code TSHIRT50 at checkout.</p>
+            <a href="#" class="btn btn-warning">Shop Now</a>
+          </div>
+        </div>
+      </div>
+      <div class="col-md-6 mb-4">
+        <div class="card text-white bg-dark">
+          <div class="card-header">Promotion</div>
+          <div class="card-body">
+            <h5 class="card-title">Free Shipping on Orders Over $100</h5>
+            <p class="card-text">Limited time only.</p>
+            <a href="#" class="btn btn-warning">Shop Now</a>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Button for feedback modal -->
+    <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#feedbackModal">
+      Leave a feedback
+    </button>
+
+    <!-- Feedback Modal -->
+    <div class="modal fade" id="feedbackModal" tabindex="-1" aria-labelledby="feedbackModalLabel" aria-hidden="true">
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title" id="feedbackModalLabel">Leave Feedback</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+          </div>
+          <div class="modal-body">
+            <div class="container">
+              <div class="row">
+                <div class="col">
+                  <h1 class="text-center mt-5 mb-3">Velvet Vibes</h1>
+                  <p class="text-center">At Velvet Vibes, we believe that our customers are the heart of our business.
+                    We value your feedback and appreciate you taking the time to provide it. Your feedback helps us
+                    improve our products and services for you.</p>
+                </div>
+              </div>
+              <div class="row">
+                <div class="col">
+                  <div class="card bg-light">
+                    <div class="card-body">
+                      <form action="/feedback" method="post" id="myform">
+                        <div class="mb-3">
+                          <label for="name" class="form-label">Name</label>
+                          <input type="text" class="form-control" id="name" name="name" placeholder="Enter your name">
+                          <div id="name-invalid-feedback"></div>
+                        </div>
+                        <div class="mb-3">
+                          <label for="feedback" class="form-label">Feedback</label>
+                          <textarea class="form-control" id="feedback" name="feedback" rows="3"
+                            placeholder="Enter your feedback"></textarea>
+                          <div id="feedback-invalid-feedback"></div>
+                        </div>
+                        <div class="mb-3">
+                          <label for="rating" class="form-label">Rating</label>
+                          <select class="form-select" id="rating" name="rating">
+                            <option value="0" selected>Choose a rating...</option>
+                            <option value="Excellent">Excellent</option>
+                            <option value="Good">Good</option>
+                            <option value="Poor">Poor</option>
+                            <option value="Disappointing">Disappointing</option>
+                          </select>
+                          <div id="rating-invalid-feedback"></div>
+                        </div>
+                        <input type="submit" class="btn btn-primary" value="Submit Feedback" onclick="validate()">
+                      </form>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Customer Reviews -->
+    <div class="row mt-2">
+      <div class="col">
+        <div class="card bg-light text-dark">
+          <div class="card-header">
+            <h3 class="card-title text-center">Reviews</h3>
+          </div>
+          <div class="card-body" id="reviews">
+            {{{feedbackData}}}
+          </div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+
+  <!-- Footer -->
+  <footer class="bg-dark text-light">
+    <div class="container py-3">
+      <div class="row">
+        <div class="col-md-4">
+          <h5>About Velvet Vibes</h5>
+          <p>Velvet Vibes is an online shopping store that offers the latest fashion trends for women. Our mission is to
+            provide high-quality products at affordable prices, while providing exceptional customer service.</p>
+        </div>
+        <div class="col-md-4">
+          <h5>Contact Us</h5>
+          <ul class="list-unstyled">
+            <li>Phone: 1-800-VELVETVIBES</li>
+            <li>Email: support@velvetvibes.com</li>
+            <li>Address: 123 Main Street, Anytown USA</li>
+          </ul>
+        </div>
+        <div class="col-md-4">
+          <h5>Follow Us</h5>
+          <ul class="list-unstyled">
+            <li><a href="#">Facebook</a></li>
+            <li><a href="#">Instagram</a></li>
+            <li><a href="#">Twitter</a></li>
+          </ul>
+        </div>
+      </div>
+      <hr>
+      <!-- Copyright -->
+      <div id="copyright" class="text-center">
+      </div>
+      <!-- Copyright -->
+    </div>
+  </footer>
+
+</body>
+
+</html>
+
+<script>
+  //script to display current year on footer
+  const year = new Date().getFullYear(); // Get the current year
+  document.addEventListener('DOMContentLoaded', () => {
+    const copyright = document.querySelector('#copyright');
+    copyright.textContent = `Copyright © ${year} Velvet Vibes`;
+  });
+</script>
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
+  integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+<script src="./feedback.js"></script>
